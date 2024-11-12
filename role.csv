@@ -1,0 +1,21 @@
+RoleID,RoleName,ProjectID,Description
+1,Team Lead,1,Leads a team of engineers
+2,Project Manager,1,Oversees project deliverables
+3,Marketing Manager,2,Responsible for marketing campaigns
+4,HR Manager,2,Handles HR operations and strategy
+5,System Administrator,1,Maintains and secures IT systems
+6,Data Analyst,2,Provides insights from data analysis
+7,IT Support Specialist,1,Offers technical support to employees
+8,Sales Manager,2,Leads the sales team and strategy
+9,Senior Developer,1,Develops complex features and systems
+10,Content Strategist,2,Plans and executes content marketing
+11,Web Developer,3,Creates and maintains websites
+12,Product Owner,1,Defines product vision and backlog
+13,Data Engineer,2,Designs and maintains data pipelines
+14,Graphic Designer,3,Creates visual content for marketing
+15,Operations Manager,1,Implements efficient operations and processes 
+16,Research Analyst,2,Conducts research and analysis for projects 
+17,Compliance Analyst,1,Ensures compliance with industry standards 
+18,Quality Assurance Tester,2,Tests software for quality and performance 
+19,Training Specialist,1,Develops training materials and sessions 
+20,Customer Success Manager,3,Ensures customer satisfaction and retention

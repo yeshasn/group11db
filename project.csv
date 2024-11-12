@@ -1,0 +1,13 @@
+ProjectID,ProjectName,Description,ManagerID
+1,New Web Platform,Build a scalable web platform,1
+2,Marketing Automation,Implement marketing automation tools,2
+3,Data Warehouse Implementation,Create a centralized data storage solution,2 
+4,Website Redesign,Revamp the company website for better user experience,1 
+5,HR Management System,Develop an integrated HR system,2
+6,Sales Analytics Dashboard,Create dashboards for sales performance insights,3 
+7,Customer Relationship Management,Implement a CRM system,1
+8,Employee Training Portal,Develop an online training platform,2
+9,E-commerce Platform,Create an online shopping experience,1
+10,Inventory Management System,Develop a system for managing inventory,2 
+11,Supply Chain Optimization,Optimize supply chain processes,1
+12,Social Media Strategy,Develop a comprehensive social media plan,2
