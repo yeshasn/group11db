@@ -1,0 +1,94 @@
+// Add this to your employeehome.html
+<script>
+const employeeId = new URLSearchParams(window.location.search).get('id');
+
+// Load employee data
+function loadEmployeeData() {
+    fetch(`dp.php?id=${employeeId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error(data.error);
+                return;
+            }
+            
+            // Update profile info
+            document.querySelector('.profile-info').innerHTML = `
+                <p><strong>Name:</strong> ${data.employee.FullName}</p>
+                <p><strong>Department:</strong> ${data.employee.Department}</p>
+            `;
+            
+            // Update skills list
+            const skillsList = document.querySelector('.skills .list');
+            skillsList.innerHTML = data.skills.map(skill => `
+                <li>
+                    ${skill.SkillName} (${skill.SkillLevel})
+                    <button onclick="removeSkill('${skill.SkillName}', '${skill.SkillLevel}')" 
+                            class="remove-btn">Remove</button>
+                </li>
+            `).join('');
+            
+            // Update certifications list
+            const certList = document.querySelector('.certifications .list');
+            certList.innerHTML = data.certifications.map(cert => `
+                <li>
+                    ${cert.CertificationName} (${cert.IssuingOrg})
+                    <button onclick="removeCertification('${cert.CertificationName}')" 
+                            class="remove-btn">Remove</button>
+                </li>
+            `).join('');
+        });
+}
+
+// Add new skill
+function addSkill(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    formData.append('employeeId', employeeId);
+    formData.append('action', 'add');
+    formData.append('type', 'skill');
+    
+    fetch('dp.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            form.reset();
+            loadEmployeeData();
+        }
+    });
+}
+
+// Remove skill
+function removeSkill(skillName, skillLevel) {
+    const formData = new FormData();
+    formData.append('employeeId', employeeId);
+    formData.append('action', 'remove');
+    formData.append('type', 'skill');
+    formData.append('skillName', skillName);
+    formData.append('skillLevel', skillLevel);
+    
+    fetch('dp.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            loadEmployeeData();
+        }
+    });
+}
+
+// Similar functions for certifications
+// ... 
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', loadEmployeeData);
+
+// Add form submit handlers
+document.querySelector('.skills form').addEventListener('submit', addSkill);
+</script>

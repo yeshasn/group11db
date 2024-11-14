@@ -1,0 +1,4 @@
+To use this:
+
+Place this code in your dp.php file
+Add whats in "addToEmployeeHomehtml" JavaScript to employeehome.html to handle the AJAX calls:
