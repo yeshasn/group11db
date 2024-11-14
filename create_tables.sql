@@ -74,12 +74,12 @@ CREATE TABLE Experience (
 );
 
 CREATE TABLE Role_Skill (
-    RoleID INT NOT NULL,  -- RoleID is required for primary key
-    SkillID INT DEFAULT NULL,  -- SkillID can be NULL
+    RoleID INT NOT NULL,
+    SkillID INT NOT NULL,
     MinSkillLevel INT NOT NULL,
-    PRIMARY KEY (RoleID, SkillID),  -- RoleID is the primary key
+    PRIMARY KEY (RoleID, SkillID),
     FOREIGN KEY (RoleID) REFERENCES Role(RoleID) ON DELETE CASCADE,
-    FOREIGN KEY (SkillID) REFERENCES Skill(SkillID) ON DELETE SET NULL
+    FOREIGN KEY (SkillID) REFERENCES Skill(SkillID) ON DELETE CASCADE
 );
 
 CREATE TABLE Role_Experience (
