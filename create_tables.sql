@@ -58,6 +58,14 @@ CREATE TABLE Employee_Skill (
     FOREIGN KEY (SkillID) REFERENCES Skill(SkillID) ON DELETE CASCADE
 );
 
+CREATE TABLE Employee_Experience (
+    EmployeeID INT,
+    ExperienceID INT,
+    PRIMARY KEY (EmployeeID, ExperienceID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID) ON DELETE CASCADE,
+    FOREIGN KEY (ExperienceID) REFERENCES Experience(ExperienceID) ON DELETE CASCADE
+);
+
 CREATE TABLE Experience (
     ExperienceID INT PRIMARY KEY,
     RoleTitle VARCHAR(100) NOT NULL,
@@ -81,4 +89,12 @@ CREATE TABLE Role_Experience (
     PRIMARY KEY (RoleID, ExperienceID),
     FOREIGN KEY (RoleID) REFERENCES Role(RoleID) ON DELETE CASCADE,
     FOREIGN KEY (ExperienceID) REFERENCES Experience(ExperienceID) ON DELETE CASCADE
+);
+
+CREATE TABLE Role_Certification (
+    RoleID INT,
+    CertificationID INT,
+    PRIMARY KEY (RoleID, CertificationID),
+    FOREIGN KEY (RoleID) REFERENCES Role(RoleID) ON DELETE CASCADE,
+    FOREIGN KEY (CertificationID) REFERENCES Certification(CertificationID) ON DELETE CASCADE
 );
