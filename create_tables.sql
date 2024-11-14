@@ -77,7 +77,7 @@ CREATE TABLE Role_Skill (
     RoleID INT NOT NULL,  -- RoleID is required for primary key
     SkillID INT DEFAULT NULL,  -- SkillID can be NULL
     MinSkillLevel INT NOT NULL,
-    PRIMARY KEY (RoleID),  -- RoleID is the primary key
+    PRIMARY KEY (RoleID, SkillID),  -- RoleID is the primary key
     FOREIGN KEY (RoleID) REFERENCES Role(RoleID) ON DELETE CASCADE,
     FOREIGN KEY (SkillID) REFERENCES Skill(SkillID) ON DELETE SET NULL
 );
