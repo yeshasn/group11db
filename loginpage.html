@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<hea    d>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Matchmaker</title>
@@ -11,12 +11,12 @@
         <div class="login-box">
             <h1>Employee Matchmaker</h1>
             <h2>Sign In</h2>
-            <form action="manager.html">
+            <form action="dp.php" method="get">
                 <div class="name-fields">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" placeholder="First Name" name="fname" required>
+                    <input type="text" placeholder="Last Name" name="lname" required>
                 </div>
-                <input type="text" placeholder="Employee Code" required>
+                <input type="text" placeholder="Employee Code" name="ecode" required>
                 <button type="submit">login</button>
             </form>
         </div>
