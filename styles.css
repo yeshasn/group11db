@@ -110,6 +110,8 @@ button:hover {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Make content scrollable */
+    height: 100vh; /* Ensure it can grow and be scrollable */
 }
 
 .profile-box h1 {
@@ -204,6 +206,15 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Smaller Add button */
+.add-btn {
+    background-color: #3a49f9;
+    padding: 8px; /* Reduced padding */
+    font-size: 1rem; /* Smaller font size */
+    width: 100%; /* Adjust width to fit content */
+    max-width: 100px; /* Ensure it stays small */
 }
 
 /* Save Changes Button */
