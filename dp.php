@@ -1,13 +1,9 @@
 <?php
-header("Content-Type: application/json");
-
 $hostname = "127.0.0.1";
 $username = "root"; // MySQL username
 $password = "group11db"; // MySQL password (usually empty for local)
 $dbname = "Group11DB"; // Your database name
 $port = 3306;
-
-$response = [];
 
 echo "Hello";
 
@@ -27,20 +23,33 @@ $ecode = $_GET['ecode'];
 
 $sql = "SELECT isManager
         FROM Employee
-        WHERE FName='$fname' and LName='$lname' and EmployeeID='$ecode';";
+        WHERE EmployeeID='$ecode' and FName='$fname' and LName='$lname'";
 
 $result = $conn->query($sql);
 
+$ecode = preg_replace('/\D/', '', $ecode);
+
 if ($result) {
-    while($row = $result->fetch_assoc()) {
-        printf("IsManager: %s", $row["isManager"]);
-        $response["isManager"] = $row["isManager"];
+    if ($row = $result->fetch_assoc()) {
+        $isManager = (int)$row["isManager"];
+
+        // Redirect based on the isManager value
+        if ($isManager === 1) {
+            header("Location: manager.php?ecode=$ecode");
+        } elseif ($isManager === 0) {
+            header("Location: employeehome.php?ecode=$ecode");
+        } else {
+            echo "Error: Invalid employee status";
+        }
+    } else {
+        echo "Error: Employee not found";
     }
     $result->free();
+} else {
+    echo "Error: Query failed";
 }
 
 $conn->close();
-
-echo json_encode($response);
+exit();
 
 ?>
